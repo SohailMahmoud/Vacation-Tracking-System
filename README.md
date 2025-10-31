@@ -1,4 +1,4 @@
-# Vacation-Tracking-System
+# Vacation Tracking System
 Our moto is: the system must be easy to use.
 
 # Vision
