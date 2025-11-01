@@ -74,4 +74,18 @@ any rejection of leave time requests made by the rules in the system.
 - Back Up System Logs: Describes how the system administrator backs
 up the system’s logs
 
+Let's focus on "Manage Time" use case, this use case by far is the most frequently invoked and the one most
+viewed by all the actors of the system. As a result, it is critical to implement this
+use case effectively and to ensure that it meets all of the overall design goals,
+including the ease-of-use feature.
+
+### Manage Time Use case
+- Actor: Employee
+- Goal: The employee wishes to submit a new request for vacation time
+- Preconditions: The employee is authenticated by the portal framework and
+identified as an employee of the company with privileges to manage his or her
+own vacation time
+
+
+
 
