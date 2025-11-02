@@ -52,8 +52,7 @@ information in all HR systems is up to date and correct. An HR clerk can
 add or remove nearly any record in the system. In the real world, HR clerks
 may or may not be employees; however, if they are employees, they use two
 separate login IDs to manage these two different roles
-- **System Admin**: A role responsible for the smooth running of the sys-
-tem’s technical resources (e.g., Web server, database) and for collecting and
+- **System Admin**: A role responsible for the smooth running of the system’s technical resources (e.g., Web server, database) and for collecting and
 archiving all log files
 
 ## Main use cases:
