@@ -107,6 +107,80 @@ Following is the sequence digram of a manager approving a request:
 
 <img width="1880" height="2078" alt="Manage Time use case Sequence diagram-10" src="https://github.com/user-attachments/assets/79c47ffa-de2e-4f58-8021-8d2a98a9366c" />
 
+Pseudocode:
+- Authentication Flow
+```
+function authenticateEmployee(credentials)
+    IF not isValidCredentials(credentials) THEN
+        return Error("Access denied")
+    END IF
+
+    employee = findEmployeeByCredentials(credentials)
+    return employee
+end function
+```
+
+- Vacation Request Submission
+```
+function submitVacationRequest(employee, requestData)
+    IF not isRequestDataComplete(requestData) THEN
+        return Error("Incomplete request information")
+    END IF
+
+    category = getVacationCategory(requestData.categoryId)
+    IF category is null THEN
+        return Error("Invalid vacation category")
+    END IF
+
+    IF not hasSufficientBalance(employee, category, requestData) THEN
+        return Error("Insufficient vacation balance")
+    END IF
+
+    request = createVacationRequest(employee, category, requestData)
+    validateVacationRequest(request)
+
+    saveVacationRequest(request)
+
+    IF request.requiresApproval THEN
+        notifyManager(request)
+        updateRequestStatus(request, "Pending Approval")
+    ELSE
+        updateRequestStatus(request, "Approved")
+    END IF
+
+    return request
+end function
+```
+
+- Manager Approval
+```
+function processManagerApproval(manager)
+    pendingRequests = getPendingRequests(manager)
+
+    FOR each request IN pendingRequests DO
+        decision = getManagerDecision(request)
+        IF decision = "approve" THEN
+            approveRequest(request)
+            notifyEmployee(request.employee, "approved")
+        ELSE
+            rejectRequest(request, decision.reason)
+            notifyEmployee(request.employee, "rejected", decision.reason)
+        END IF
+    END FOR
+end function
+```
+
+- Notification Handling
+```
+function notifyManager(request)
+    sendEmail(to=request.manager.email, subject="Vacation Request Pending", body=request.details)
+end function
+
+function notifyEmployee(employee, status, reason=null)
+    message = buildNotificationMessage(status, reason)
+    sendEmail(to=employee.email, subject="Vacation Request " + status, body=message)
+end function
+```
 
 
 
