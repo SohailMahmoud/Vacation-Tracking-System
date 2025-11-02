@@ -81,16 +81,36 @@ use case effectively and to ensure that it meets all of the overall design goals
 including the ease-of-use feature.
 
 ### Manage Time Use case
-- **Actor**: Employee
+- **Actor**: Employee and Manager
 - **Goal**: The employee wishes to submit a new request for vacation time
 - **Preconditions**: The employee is authenticated by the portal framework and
 identified as an employee of the company with privileges to manage his or her
 own vacation time
 
-Following is a flowchart represesnting the above use case in two spearate lanes: 
+Following is the flowchart represesnting the above use case in two spearate lanes: 
 one for the employee submitting a request and another one for a manager approving or rejecting a request
 
 <img width="3831" height="3416" alt="manage-time-use-case" src="https://github.com/user-attachments/assets/02998254-e5f3-478b-a324-d347f9b1deac" />
+
+
+Following is the ER digram for the same use case:
+
+![Manage Time use case ER digram](https://github.com/user-attachments/assets/9d99a093-7b6e-4cb6-a97a-a7f1f142c8ad)
+
+
+Following is the sequence digram of an employee submitting a request: 
+
+<img width="2320" height="2138" alt="Manage Time use case Sequence diagram-7" src="https://github.com/user-attachments/assets/a53e1b9c-7998-4671-820e-8372c52dce69" />
+
+
+Following is the sequence digram of a manager approving a request:
+
+<img width="1880" height="2078" alt="Manage Time use case Sequence diagram-10" src="https://github.com/user-attachments/assets/79c47ffa-de2e-4f58-8021-8d2a98a9366c" />
+
+
+
+
+
 
 
 
