@@ -193,6 +193,8 @@ Following is the flowchart of the withdraw alternate flow:
 <img width="3098" height="5890" alt="Untitled-2025-11-01-1346-2" src="https://github.com/user-attachments/assets/53a1729d-da9d-4717-91e5-00023313b2c5" />
 
 Following is the sequence digram withdraw alternate flow:
+<img width="1884" height="1714" alt="Manage Time use case Sequence diagram" src="https://github.com/user-attachments/assets/36cc87b9-c22f-4e7e-861a-0026b8f9de39" />
+
 
 
 
