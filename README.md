@@ -80,7 +80,8 @@ use case effectively and to ensure that it meets all of the overall design goals
 including the ease-of-use feature.
 
 ### Manage Time Use case
-- **Actor**: Employee and Manager
+#### Main flow:
+- **Actors**: Employee and Manager
 - **Goal**: The employee wishes to submit a new request for vacation time
 - **Preconditions**: The employee is authenticated by the portal framework and
 identified as an employee of the company with privileges to manage his or her
@@ -180,6 +181,14 @@ function notifyEmployee(employee, status, reason=null)
     sendEmail(to=employee.email, subject="Vacation Request " + status, body=message)
 end function
 ```
+
+#### Alternate flow: Withdraw Request
+- **Actor**: Employee
+- **Goal**: An employee has made a vacation time request, and that
+request has yet to be approved or denied by an authorized manager. See also
+main flow preconditions
+
+<img width="3098" height="5890" alt="Untitled-2025-11-01-1346-2" src="https://github.com/user-attachments/assets/53a1729d-da9d-4717-91e5-00023313b2c5" />
 
 
 
