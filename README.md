@@ -184,11 +184,16 @@ end function
 
 #### Alternate flow: Withdraw Request
 - **Actor**: Employee
-- **Goal**: An employee has made a vacation time request, and that
+- **Goal**: The employee wants to withdraw an outstanding request for vacation time
+- **Preconditions**: An employee has made a vacation time request, and that
 request has yet to be approved or denied by an authorized manager. See also
 main flow preconditions
 
+Following is the flowchart of the withdraw alternate flow:
 <img width="3098" height="5890" alt="Untitled-2025-11-01-1346-2" src="https://github.com/user-attachments/assets/53a1729d-da9d-4717-91e5-00023313b2c5" />
+
+Following is the sequence digram withdraw alternate flow:
+
 
 
 
