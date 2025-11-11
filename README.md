@@ -210,6 +210,11 @@ Following is the sequence digram:
 <img width="1940" height="2778" alt="Manage Time use case Sequence diagram-3" src="https://github.com/user-attachments/assets/ca513d48-fd14-4fe3-acea-2b53d67596ed" />
 
 
+Finally, here is the state machine diagram for the suggested VacationRequest object in the above use case:
+<img width="1440" height="520" alt="State machine digram" src="https://github.com/user-attachments/assets/1c92bdca-8b84-4ade-b598-ae4a34d357d0" />
+
+
+
 
 
 
