@@ -206,8 +206,22 @@ vious 5 business days). See also main flow preconditions
 Following is the flowchart of the cancel an approved request:
 <img width="4007" height="8384" alt="cancel request flowchart" src="https://github.com/user-attachments/assets/f93c885c-140a-4cef-9cde-669e4669ebff" />
 
-Following is the sequence digram:
+Following is the sequence digram of the cancel an approved request:
 <img width="1940" height="2778" alt="Manage Time use case Sequence diagram-3" src="https://github.com/user-attachments/assets/ca513d48-fd14-4fe3-acea-2b53d67596ed" />
+
+
+#### Alternate flow: Edit Pending Request
+- **Actor**: Employee
+- **Goal**: The employee wants to edit the description or title of a pending request
+- **Preconditions**: An employee has made a vacation time request, and that
+request has yet to be approved or denied by an authorized manager. See also
+main flow preconditions
+
+Following is the flowchart of the edit pending request:
+<img width="7041" height="7369" alt="edit a pending request" src="https://github.com/user-attachments/assets/ea02f79a-0ab6-4d73-920b-fc6269c5b00b" />
+
+Following is the sequence digram of the edit pending request:
+<img width="2064" height="2480" alt="Manage Time use case Sequence diagram-4" src="https://github.com/user-attachments/assets/8618718e-ba0f-4b7c-842a-bf8a9703e841" />
 
 
 Finally, here is the state machine diagram for the suggested VacationRequest object in the above use case:
