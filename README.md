@@ -189,12 +189,25 @@ end function
 request has yet to be approved or denied by an authorized manager. See also
 main flow preconditions
 
-Following is the flowchart of the withdraw alternate flow:
+Following is the flowchart of the withdraw request:
 <img width="3098" height="5890" alt="Untitled-2025-11-01-1346-2" src="https://github.com/user-attachments/assets/53a1729d-da9d-4717-91e5-00023313b2c5" />
 
-Following is the sequence digram withdraw alternate flow:
+Following is the sequence digram:
 <img width="1884" height="1714" alt="Manage Time use case Sequence diagram" src="https://github.com/user-attachments/assets/36cc87b9-c22f-4e7e-861a-0026b8f9de39" />
 
+
+#### Alternate flow: Cancel Approved Request
+- **Actor**: Employee
+- **Goal**: The employee wants to cancel an approved vacation time request
+- **Preconditions**: The employee has a vacation time request that has been
+approved and is scheduled for some time in the future or the recent past (pre-
+vious 5 business days). See also main flow preconditions
+
+Following is the flowchart of the cancel an approved request:
+<img width="4007" height="8384" alt="cancel request flowchart" src="https://github.com/user-attachments/assets/f93c885c-140a-4cef-9cde-669e4669ebff" />
+
+Following is the sequence digram:
+<img width="1940" height="2778" alt="Manage Time use case Sequence diagram-3" src="https://github.com/user-attachments/assets/ca513d48-fd14-4fe3-acea-2b53d67596ed" />
 
 
 
