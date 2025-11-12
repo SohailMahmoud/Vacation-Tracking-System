@@ -227,7 +227,8 @@ Following is the sequence digram of the edit pending request:
 Finally, here is the state machine diagram for the suggested VacationRequest object in the above use case:
 <img width="1440" height="520" alt="State machine digram" src="https://github.com/user-attachments/assets/1c92bdca-8b84-4ade-b598-ae4a34d357d0" />
 
-
+An enhanced state machine diagram using effects:
+<img width="1960" height="500" alt="State machine digram-2" src="https://github.com/user-attachments/assets/f8567c71-ce4f-4f26-b24f-28f978e8e66d" />
 
 
 
