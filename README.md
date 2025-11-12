@@ -195,6 +195,40 @@ Following is the flowchart of the withdraw request:
 Following is the sequence digram:
 <img width="1884" height="1714" alt="Manage Time use case Sequence diagram" src="https://github.com/user-attachments/assets/36cc87b9-c22f-4e7e-861a-0026b8f9de39" />
 
+Pseudocode:
+```
+function withdrawVacationRequest(employeeId, requestId)
+    employee = getEmployeeById(employeeId)
+    IF employee is null THEN
+        return Error("Employee not found")
+    END IF
+
+    request = getVacationRequestById(requestId)
+    IF request is null THEN
+        return Error("Vacation request not found")
+    END IF
+
+    IF request.employeeId ≠ employee.id THEN
+        return Error("Unauthorized: request does not belong to employee")
+    END IF
+
+    IF request.status ≠ "Pending Approval" THEN
+        return Error("Request cannot be withdrawn because it is already " + request.status)
+    END IF
+
+    confirmed = confirmWithdrawal(request)
+    IF not confirmed THEN
+        return "Withdrawal canceled by employee"
+    END IF
+
+    removeRequestFromManagerQueue(request)
+    updateRequestStatus(request, "Withdrawn")
+    notifyManagerOfWithdrawal(request)
+
+    return "Vacation request withdrawn successfully"
+end function
+```
+
 
 #### Alternate flow: Cancel Approved Request
 - **Actor**: Employee
@@ -208,6 +242,63 @@ Following is the flowchart of the cancel an approved request:
 
 Following is the sequence digram of the cancel an approved request:
 <img width="1940" height="2778" alt="Manage Time use case Sequence diagram-3" src="https://github.com/user-attachments/assets/ca513d48-fd14-4fe3-acea-2b53d67596ed" />
+
+Pseudocode:
+```
+function cancelApprovedVacationRequest(employeeId, requestId)
+    employee = getEmployeeById(employeeId)
+    IF employee is null THEN
+        return Error("Employee not found")
+    END IF
+
+    request = getVacationRequestById(requestId)
+    IF request is null THEN
+        return Error("Vacation request not found")
+    END IF
+
+    IF request.employeeId ≠ employee.id THEN
+        return Error("Unauthorized: request does not belong to employee")
+    END IF
+
+    IF request.status ≠ "Approved" THEN
+        return Error("Only approved requests can be canceled")
+    END IF
+
+    IF not isCancelable(request) THEN
+        return Error("Request cannot be canceled because it’s too old")
+    END IF
+
+    confirmation = confirmCancellation(request)
+    IF not confirmation.confirmed THEN
+        return "Cancellation aborted by employee"
+    END IF
+
+    updateRequestStatus(request, "Canceled")
+
+    IF request.category is not null THEN
+        restoreVacationBalance(employee, request.category, request.hoursRequested)
+    END IF
+
+    notifyManagerOfCancellation(request, confirmation.reason)
+
+    updateEmployeeDashboard(employee)
+    return "Vacation request canceled successfully"
+end function
+```
+
+Validation Helper:
+```
+function isCancelable(request)
+    today ← currentDate()
+    IF request.startDate > today THEN
+        return true                       // future request
+    ELSE IF isWithinLastBusinessDays(request.endDate, 5) THEN
+        return true                       // recent past (≤ 5 business days)
+    ELSE
+        return false
+    END IF
+end function
+```
 
 
 #### Alternate flow: Edit Pending Request
