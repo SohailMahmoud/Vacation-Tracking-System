@@ -193,7 +193,7 @@ Following is the flowchart of the withdraw request:
 <img width="3098" height="5890" alt="Untitled-2025-11-01-1346-2" src="https://github.com/user-attachments/assets/53a1729d-da9d-4717-91e5-00023313b2c5" />
 
 Following is the sequence digram:
-<img width="1924" height="1799" alt="Manage Time use case Sequence diagram" src="https://github.com/user-attachments/assets/9eee4ff7-4688-4cfb-be3b-614a8140b6da" />
+<img width="1924" height="1761" alt="Manage Time use case Sequence diagram" src="https://github.com/user-attachments/assets/5ea89633-a051-4bc5-b696-8612c4ad7390" />
 
 Pseudocode:
 ```
