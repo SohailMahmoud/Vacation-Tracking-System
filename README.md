@@ -286,20 +286,6 @@ function cancelApprovedVacationRequest(employeeId, requestId)
 end function
 ```
 
-Validation Helper:
-```
-function isCancelable(request)
-    today ← currentDate()
-    IF request.startDate > today THEN
-        return true                       // future request
-    ELSE IF isWithinLastBusinessDays(request.endDate, 5) THEN
-        return true                       // recent past (≤ 5 business days)
-    ELSE
-        return false
-    END IF
-end function
-```
-
 
 #### Alternate flow: Edit Pending Request
 - **Actor**: Employee
@@ -313,6 +299,52 @@ Following is the flowchart of the edit pending request:
 
 Following is the sequence digram of the edit pending request:
 <img width="2064" height="2480" alt="Manage Time use case Sequence diagram-4" src="https://github.com/user-attachments/assets/8618718e-ba0f-4b7c-842a-bf8a9703e841" />
+
+Pseudocode:
+```
+function editPendingVacationRequest(employeeId, requestId, updatedData)
+    employee = getEmployeeById(employeeId)
+    IF employee is null THEN
+        return Error("Employee not found")
+    END IF
+
+    request = getVacationRequestById(requestId)
+    IF request is null THEN
+        return Error("Vacation request not found")
+    END IF
+
+    IF request.employeeId ≠ employee.id THEN
+        return Error("Unauthorized: request does not belong to employee")
+    END IF
+
+    IF request.status ≠ "Pending Approval" THEN
+        return Error("Only pending requests can be edited or withdrawn")
+    END IF
+
+    action = getEditAction(updatedData)   // “edit” or “withdraw”
+
+    IF action = "withdraw" THEN
+        confirmed = confirmWithdrawal(request)
+        IF not confirmed THEN
+            return "Withdrawal canceled by employee"
+        END IF
+        updateRequestStatus(request, "Withdrawn")
+        notifyManagerOfWithdrawal(request)
+        return "Vacation request withdrawn successfully"
+    END IF
+
+    result = validateRequestEdits(request, updatedData)
+    IF not result.isValid THEN
+        displayEditPageWithErrors(result.errors)
+        return Error("Validation failed: " + result.errors)
+    END IF
+
+    applyRequestEdits(request, updatedData)
+    saveVacationRequest(request)
+    displayMessage("Request updated successfully.")
+    returnToHomePage(employee)
+end function
+```
 
 
 Finally, here is the state machine diagram for the suggested VacationRequest object in the above use case:
